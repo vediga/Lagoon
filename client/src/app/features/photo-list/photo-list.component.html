@@ -1,3 +1,15 @@
-<p>
-  photo-list works!
-</p>
+<div class="photo-list">
+   <div *ngFor="let photo of photoList; let id = index">
+      <div class="ui grid">
+         <div class="two wide column"></div>
+         <div class="fourteen wide column">
+            <div class="ui raised segment">
+               <a href="http://google.com" class="ui fluid image">
+                  <img src="http://lorempixel.com/400/200/sports/{{id}}">
+               </a>
+            </div>
+         </div>
+      </div>
+      <div class="ui divider"></div>
+   </div>
+</div>

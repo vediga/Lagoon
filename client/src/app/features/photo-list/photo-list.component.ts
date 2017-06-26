@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PhotoService } from '../../services/photo.service';
+// import { PhotoService } from '../../services/photo.service';
+import { Photo } from '../../models/photo';
 
 @Component({
     selector: 'photo-list',
@@ -8,7 +9,18 @@ import { PhotoService } from '../../services/photo.service';
 })
 export class PhotoListComponent implements OnInit {
 
-    constructor() { }
+    photoList: Photo[];
 
-    ngOnInit() {}
+    constructor() {
+        this.photoList = [];
+    }
+
+    ngOnInit() {
+        // TODO: Fetch photos from API
+        let photo1 = new Photo();
+        let photo2 = new Photo();
+        let photo3 = new Photo();
+
+        this.photoList.push(photo1, photo2, photo3);
+    }
 }
