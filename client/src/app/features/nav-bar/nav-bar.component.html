@@ -1,9 +1,9 @@
 <div class="ui inverted pointing fixed menu">
-    <a class="header item">Lagoon</a>
-    <a class="item active">Home</a>
-    <a class="item">My Album</a>
+    <a class="header item" [routerLink]="['/']">Lagoon</a>
+    <a class="item active" [routerLink]="['/']">Home</a>
+    <a class="item" [routerLink]="['/my-album']">My Album</a>
     <div class="right menu">
-        <a class="item">Register</a>
-        <a class="item">Login</a>
+        <a class="item" [routerLink]="['/register']">Register</a>
+        <a class="item" [routerLink]="['/login']">Login</a>
     </div>
 </div>
