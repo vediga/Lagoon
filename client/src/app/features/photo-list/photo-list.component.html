@@ -1,35 +1,35 @@
 <div class="photo-list">
-   <div *ngFor="let photo of photoList; let id = index">
-      <div class="ui grid">
-         <div class="two wide column"></div>
-         <div class="fourteen wide column">
-            <div class="ui raised segment">
-               <div class="ui grid">
-                  <!-- photo row -->
-                  <div class="row">
-                     <div class="two wide column"></div>
-                     <div class="twelve wide column">
-                        <a href="http://google.com" class="ui fluid image">
-                           <img src="http://lorempixel.com/400/200/sports/{{id}}">
-                        </a>
-                     </div>
-                     <div class="two wide column"></div>
-                  </div>
-                  <!-- title row -->
-                  <div class="row">
-                     <div class="one wide column"></div>
-                     <div class="twelve wide column">
-                        <strong>Here goes the title</strong>
-                        <p class="float right">description ...</p>
-                     </div>
-                     <div class="right floated two wide column right aligned">
-                        3 Likes
-                     </div>
-                     <div class="one wide column">
-                  </div>
-               </div>
+    <div *ngFor="let photo of photoList; let id = index">
+        <div class="ui grid">
+            <div class="two wide column"></div>
+            <div class="fourteen wide column">
+                <div class="ui raised segment">
+                    <div class="ui grid">
+                        <!-- photo row -->
+                        <div class="row">
+                            <div class="two wide column"></div>
+                            <div class="twelve wide column">
+                                <a href="http://google.com" class="ui fluid image">
+                                    <img src="http://lorempixel.com/400/200/sports/{{id}}">
+                                </a>
+                            </div>
+                            <div class="two wide column"></div>
+                        </div>
+                        <!-- title row -->
+                        <div class="row">
+                            <div class="one wide column"></div>
+                            <div class="twelve wide column">
+                                <strong>Here goes the title</strong>
+                                <p class="float right">description ...</p>
+                            </div>
+                            <div class="right floated two wide column right aligned">
+                                3 Likes
+                            </div>
+                            <div class="one wide column"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
 </div>
