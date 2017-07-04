@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'home',
+  selector: 'lagoon-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

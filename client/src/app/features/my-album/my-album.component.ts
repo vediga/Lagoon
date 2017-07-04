@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-my-album',
+  selector: 'lagoon-my-album',
   templateUrl: './my-album.component.html',
   styleUrls: ['./my-album.component.css']
 })

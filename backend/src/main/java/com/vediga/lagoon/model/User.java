@@ -22,9 +22,9 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long userId;
+	private String username;
 	private String firstName;
 	private String lastName;
-	private String username;
 	private String password;
 
 	// each user can add many photos

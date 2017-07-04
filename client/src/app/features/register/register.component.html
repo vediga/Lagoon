@@ -1,3 +1,42 @@
-<p>
-  register works!
-</p>
+<h1 class="ui header">User Registration</h1>
+
+<div class="ui error message" *ngIf="registrationFailed">
+  <div class="header">Registration Failed</div>
+  <p>Please try again</p>
+</div>
+
+<form class="ui form" *ngIf="!registrationSuccess" [formGroup]="registerForm">
+    <div class="field">
+        <label>First Name</label>
+        <input type="text" name="first-name" placeholder="First Name" formControlName="firstName">
+    </div>
+    <div class="field">
+        <label>Last Name</label>
+        <input type="text" name="last-name" placeholder="Last Name" formControlName="lastName">
+    </div>
+    <div class="field">
+        <label>User Name</label>
+        <input type="text" name="user-name" placeholder="username" formControlName="username">
+    </div>
+    <div class="field">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Password" formControlName="password">
+    </div>
+    <div class="field">
+        <label>Confirm Password</label>
+        <input type="password" name="confirm-password" placeholder="Password" formControlName="confirmPassword">
+    </div>
+
+    <button
+        class="ui button"
+        type="button"
+        (click)="registerUser(registerForm.value)"
+        [disabled]="!registerForm.valid">
+        Submit
+    </button>
+</form>
+
+<div class="ui success message" *ngIf="registrationSuccess">
+  <div class="header">Registration Successful</div>
+  <p>Please <a href="#" [routerLink]="['/login']">login</a> to start sharing pics</p>
+</div>
