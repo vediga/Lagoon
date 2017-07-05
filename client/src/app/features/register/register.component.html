@@ -1,41 +1,81 @@
 <h1 class="ui header">User Registration</h1>
 
+<!--failure message-->
 <div class="ui error message" *ngIf="registrationFailed">
   <div class="header">Registration Failed</div>
   <p>Please try again</p>
 </div>
 
-<form class="ui form" *ngIf="!registrationSuccess" [formGroup]="registerForm">
-    <div class="field">
-        <label>First Name</label>
-        <input type="text" name="first-name" placeholder="First Name" formControlName="firstName">
-    </div>
-    <div class="field">
-        <label>Last Name</label>
-        <input type="text" name="last-name" placeholder="Last Name" formControlName="lastName">
-    </div>
-    <div class="field">
-        <label>User Name</label>
-        <input type="text" name="user-name" placeholder="username" formControlName="username">
-    </div>
-    <div class="field">
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Password" formControlName="password">
-    </div>
-    <div class="field">
-        <label>Confirm Password</label>
-        <input type="password" name="confirm-password" placeholder="Password" formControlName="confirmPassword">
+<div class="ui grid">
+    <div class="eight wide column">
+        <!--register form-->
+        <form class="ui form" *ngIf="!registrationSuccess" [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
+            <div class="field" [ngClass]="{
+                error: registerForm.controls.firstName.invalid && submitClick
+            }">
+                <label>First Name</label>
+                <input type="text" name="first-name" placeholder="First Name" formControlName="firstName">
+            </div>
+            <div class="field" [ngClass]="{
+                error: registerForm.controls.lastName.invalid && submitClick
+            }">
+                <label>Last Name</label>
+                <input type="text" name="last-name" placeholder="Last Name" formControlName="lastName">
+            </div>
+            <div class="field" [ngClass]="{
+                error: registerForm.controls.username.invalid && submitClick
+            }">
+                <label>User Name</label>
+                <input type="text" name="user-name" placeholder="Username" formControlName="username">
+            </div>
+            <div class="field" [ngClass]="{
+                error: registerForm.controls.password.invalid && submitClick
+            }">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password" formControlName="password">
+            </div>
+            <div class="field" [ngClass]="{
+                error: (registerForm.controls.confirmPassword.invalid
+                    || registerForm.controls.password.value !== registerForm.controls.confirmPassword.value)
+                    && submitClick
+            }">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm-password" placeholder="Password" formControlName="confirmPassword">
+            </div>
+
+            <button
+                class="ui button"
+                type="submit">
+                Submit
+            </button>
+        </form>
     </div>
 
-    <button
-        class="ui button"
-        type="button"
-        (click)="registerUser(registerForm.value)"
-        [disabled]="!registerForm.valid">
-        Submit
-    </button>
-</form>
+    <!--Validation Rules-->
+    <div class="eight wide column">
+        <div class="ui error message" *ngIf="!registerForm.valid && submitClick">
+            <div class="header" *ngIf="!registerForm.valid && submitClick">Validation Rules</div>
+            <br>
+            <p *ngIf="!registerForm.controls.firstName.valid">
+                - <strong>First Name</strong> must be an alpha numeric string between 3 and 20 characters long
+            </p>
+            <p *ngIf="!registerForm.controls.lastName.valid">
+                - <strong>Last Name</strong> must be an alpha numeric string between 3 and 20 characters long
+            </p>
+            <p *ngIf="!registerForm.controls.username.valid">
+                - <strong>User Name</strong> must be an alpha numeric string between 3 and 20 characters long
+            </p>
+            <p *ngIf="!registerForm.controls.password.valid">
+                - <strong>Password</strong> must between 5 and 20 characters long
+            </p>
+            <p *ngIf="registerForm.controls.password.value !== registerForm.controls.confirmPassword.value">
+                - <strong>Confirm Password</strong> must be same as password
+            </p>
+        </div>
+    </div>
+</div>
 
+<!--success message-->
 <div class="ui success message" *ngIf="registrationSuccess">
   <div class="header">Registration Successful</div>
   <p>Please <a href="#" [routerLink]="['/login']">login</a> to start sharing pics</p>
